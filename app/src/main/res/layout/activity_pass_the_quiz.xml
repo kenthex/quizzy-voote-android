@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/style_button_main_action">
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="407dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@android:color/holo_green_light"
+        android:text="Отправить"
+        app:layout_constraintBottom_toTopOf="@+id/rv_answers"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_answers"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:padding="5dp"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_label_creator" />
+
+    <TextView
+        android:id="@+id/tv_label_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="QUIZ_NAME"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView_label_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_quiz_id" />
+
+    <TextView
+        android:id="@+id/tv_quiz_creator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="QUIZ_CREATOR"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView_label_creator"
+        app:layout_constraintTop_toTopOf="@+id/textView_label_creator" />
+
+    <TextView
+        android:id="@+id/tv_quiz_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="QUIZ_ANSWER"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/sdhfj"
+        app:layout_constraintStart_toEndOf="@+id/sdhfj" />
+
+    <TextView
+        android:id="@+id/tv_quiz_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="QUIZ_ID"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView_label_id"
+        app:layout_constraintTop_toTopOf="@+id/textView_label_id" />
+
+    <TextView
+        android:id="@+id/textView_label_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="#"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_label_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Название голосования: "
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/textView_label_id"
+        app:layout_constraintTop_toBottomOf="@+id/textView_label_id" />
+
+    <TextView
+        android:id="@+id/textView_label_creator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Создатель голосования: "
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/textView_label_name"
+        app:layout_constraintTop_toBottomOf="@+id/textView_label_name" />
+
+    <TextView
+        android:id="@+id/sdhfj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Вы ответили: "
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/textView_label_creator"
+        app:layout_constraintTop_toBottomOf="@+id/textView_label_creator" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
