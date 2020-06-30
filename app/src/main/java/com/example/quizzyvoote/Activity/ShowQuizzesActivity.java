@@ -40,7 +40,7 @@ public class ShowQuizzesActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setTitle("Голосовать");
+        actionBar.setTitle("Список опросов");
 
         msg_empty = findViewById(R.id.empty_list_msg);
 

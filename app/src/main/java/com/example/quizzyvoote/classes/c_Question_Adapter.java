@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quizzyvoote.R;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -73,7 +74,8 @@ public class c_Question_Adapter extends RecyclerView.Adapter<c_Question_Adapter.
                 mQuestions.remove(position);
                 notifyItemRemoved(position);
                 notifyItemRangeChanged(position, mQuestions.size());
-                Toast.makeText(context, "Удалено: " + itemLabel, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, "Удалено: " + itemLabel, Toast.LENGTH_SHORT).show();
+                Snackbar.make(v, "Удалён вариант ответа: " + itemLabel, Snackbar.LENGTH_SHORT).show();
             }
         });
     }

@@ -47,7 +47,7 @@ public class SigninActivity extends AppCompatActivity {
         userName = (EditText) findViewById(R.id.input_username);
         userPassword = (EditText) findViewById(R.id.input_password);
         // Меняем фокус на поле "Имя пользователя"
-        userName.requestFocus();
+        userPassword.requestFocus();
 
         userName.setText(getIntent().getStringExtra("LOGIN"));
 

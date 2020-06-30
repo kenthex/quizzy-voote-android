@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quizzyvoote.Activity.PassTheQuizActivity;
 import com.example.quizzyvoote.R;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -152,7 +153,7 @@ public class c_Quiz_List_Adapter extends RecyclerView.Adapter<c_Quiz_List_Adapte
                                 t.printStackTrace();
                             }
                         });
-                } else Toast.makeText(v.getContext(), "Голосование завершено", Toast.LENGTH_SHORT).show();
+                } else Snackbar.make(v, "Голосование завершено", Snackbar.LENGTH_SHORT).show();
             }
         });
     }

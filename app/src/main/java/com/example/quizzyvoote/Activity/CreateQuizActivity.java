@@ -93,7 +93,7 @@ public class CreateQuizActivity extends AppCompatActivity {
                 if(questions.size() != 0) {
                     new AlertDialog.Builder(context)
                             .setTitle("Подтверждение")
-                            .setMessage("Вы действительно хотите все удалить?")
+                            .setMessage("Вы действительно хотите сбросить данные опроса?")
                             .setPositiveButton("Да", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
@@ -102,7 +102,7 @@ public class CreateQuizActivity extends AppCompatActivity {
                                     questions.removeAll(questions);
                                     quizName.setText("");
                                     variants.setVisibility(View.GONE);
-                                    Snackbar.make(v, "Успешно удалено!", Snackbar.LENGTH_SHORT).show();
+                                    Snackbar.make(v, "Данные опроса успешно сброшены", Snackbar.LENGTH_SHORT).show();
                                 }
                             })
                             .setNegativeButton("Нет", null)
@@ -113,7 +113,7 @@ public class CreateQuizActivity extends AppCompatActivity {
 
         saveQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
                 Context context = v.getContext();
                 Integer quizNameLength = quizName.getText().toString().trim().length();
                 Integer answersCount = questions.size();
@@ -133,10 +133,11 @@ public class CreateQuizActivity extends AppCompatActivity {
                                         if(post.getError() != "" && post.getError() != null) {
 
                                             if(post.getError().equals("title must be unique")) {
-                                                quizName.setError("Название занято");
+                                                //quizName.setError("");
                                                 quizName.requestFocus();
+                                                Snackbar.make(v, "Название опроса занято", Snackbar.LENGTH_SHORT).show();
                                             }
-                                            Toast.makeText(CreateQuizActivity.this, post.getError(), Toast.LENGTH_SHORT).show();
+                                            //Toast.makeText(CreateQuizActivity.this, post.getError(), Toast.LENGTH_SHORT).show();
                                         } else {
                                             api_Answers answers = new api_Answers(Integer.parseInt(post.getID()), questions);
                                             api_NetworkService.getInstance()
@@ -146,7 +147,7 @@ public class CreateQuizActivity extends AppCompatActivity {
                                                         @Override
                                                         public void onResponse(@NonNull Call<api_Answers> call, @NonNull Response<api_Answers> response) {
                                                             api_Answers post = response.body();
-                                                            Toast.makeText(CreateQuizActivity.this, "Опрос успешно создан, ожидайте подтверждения!", Toast.LENGTH_SHORT).show();
+                                                            Toast.makeText(CreateQuizActivity.this, "Опрос успешно создан\nОжидайте подтверждения!", Toast.LENGTH_SHORT).show();
                                                             Intent intent = new Intent(CreateQuizActivity.this, MainActionActivity.class);
                                                             startActivity(intent);
                                                         }
